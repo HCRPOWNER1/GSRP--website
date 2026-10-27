@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSRP | Moderator Panel</title>
+<style>
+:root{--bg:#0b0d11;--panel:#111419;--panel2:#151920;--line:#262b34;--muted:#929aa8;--text:#edf1f7;--blue:#4778ff;--green:#19c99a;--red:#ff5364;--orange:#ffad36;--purple:#a66bff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;color:inherit}.topbar{height:64px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:#0e1014;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:11px;font-weight:750;font-size:15px}.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#5e8cff,#2244b8);display:grid;place-items:center;font-weight:900;box-shadow:0 0 22px #315eff44}.topright{display:flex;align-items:center;gap:18px;color:var(--muted)}.pill{border:1px solid var(--line);padding:7px 11px;border-radius:20px;font-size:12px}.online-dot{display:inline-block;width:7px;height:7px;background:var(--green);border-radius:50%;margin-right:7px;box-shadow:0 0 9px #19c99a77}.layout{display:grid;grid-template-columns:minmax(260px,1fr) minmax(350px,1.05fr) minmax(350px,1fr);gap:1px;min-height:calc(100vh - 64px);background:var(--line)}.column{background:var(--bg);padding:22px;min-width:0}.profile{display:flex;gap:12px;align-items:center;margin-bottom:17px}.avatar{height:43px;width:43px;border-radius:14px;background:linear-gradient(140deg,#28364f,#111a2b);border:1px solid #3b4a67;display:grid;place-items:center;font-size:18px}.hello{font-size:17px;font-weight:750}.sub{color:var(--muted);font-size:12px;margin-top:3px}.statusrow{display:flex;gap:9px;align-items:center;margin:15px 0}.status{border:1px solid #3b2630;background:#201318;color:#ff8190;padding:5px 9px;border-radius:18px;font-size:11px;font-weight:800}.muted{color:var(--muted)}.btn{border-radius:10px;padding:11px 12px;font-weight:700;transition:.15s;display:flex;justify-content:center;align-items:center;gap:8px;background:#1b2029;border:1px solid #2b313c}.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}.btn-primary{background:linear-gradient(100deg,#1cbd92,#20d5a1);color:#061a15}.btn-blue{background:#315ee9}.btn-purple{background:#7542d8}.btn-orange{background:#f49b16;color:#171004}.btn-pink{background:#d52f72}.btn-teal{background:#087f75}.btn-full{width:100%;margin:12px 0 17px}.toolgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}.toolgrid .btn{font-size:12px;padding:12px 7px}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:23px 0 12px}.sectionhead h2,.column h2{font-size:16px;margin:0;font-weight:780}.tiny{font-size:11px;color:var(--muted)}.search{width:100%;background:#0e1116;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--text);outline:none}.search:focus,input:focus,textarea:focus,select:focus{border-color:#4b72f5;box-shadow:0 0 0 3px #4778ff19;outline:none}.playerlist{display:grid;gap:8px;margin-top:10px}.player{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px;border:1px solid var(--line);border-radius:11px;background:#101318}.playername{display:flex;align-items:center;gap:9px;min-width:0}.miniavatar{width:28px;height:28px;border-radius:9px;background:#222b3a;display:grid;place-items:center}.team{font-size:11px;color:var(--muted)}.tag{font-size:10px;border-radius:6px;background:#1a2b22;color:#54e4b0;padding:4px 6px;white-space:nowrap}.feedsearch{display:flex;gap:8px;margin:17px 0 12px}.feed{display:grid;gap:10px}.event{border:1px solid var(--line);border-radius:12px;padding:13px;background:linear-gradient(135deg,#12151a,#0e1014)}.eventtop{display:flex;gap:9px;align-items:center;margin-bottom:7px}.eventicon{height:30px;width:30px;border-radius:9px;background:#1d2635;display:grid;place-items:center}.event strong{font-size:13px}.event p{color:#bdc4cf;margin:4px 0 0;line-height:1.6}.eventtime{font-size:11px;color:var(--muted);margin-top:8px}.formcard,.logcard{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:15px;margin-top:12px}.field{display:grid;gap:6px;margin-top:13px}.field label{font-size:12px;color:#c8ced8;font-weight:650}.field input,.field select,.field textarea{width:100%;background:#0c0f13;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:10px 11px}.field textarea{min-height:78px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.divider{height:1px;background:var(--line);margin:18px 0}.logtop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.logtop strong{font-size:13px}.kind{color:#ffbd69;font-weight:800;margin:9px 0}.logcard p{margin:6px 0;color:#c4cad4;line-height:1.55}.logfoot{display:flex;justify-content:space-between;gap:8px;margin-top:12px;color:var(--muted);font-size:11px}.smallbtn{background:#202630;border:1px solid #313844;padding:6px 8px;border-radius:7px;font-size:11px}.empty{padding:24px;text-align:center;border:1px dashed #303744;border-radius:12px;color:var(--muted);margin-top:10px}.toast{position:fixed;bottom:20px;right:20px;background:#19241f;border:1px solid #24634f;padding:12px 16px;border-radius:10px;box-shadow:0 12px 40px #0008;z-index:20;display:none}.footnote{color:#707987;font-size:10px;margin-top:18px;line-height:1.5}
+@media(max-width:1120px){.layout{grid-template-columns:1fr 1fr}.column:last-child{grid-column:1/-1;border-top:1px solid var(--line)}}@media(max-width:700px){.topbar{padding:0 13px}.topright .pill{display:none}.layout{display:block}.column{padding:17px;border-bottom:1px solid var(--line)}.column:last-child{grid-column:auto}.toolgrid{gap:7px}.toolgrid .btn{font-size:11px}.two{grid-template-columns:1fr}.hello{font-size:15px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">G</div><span>Georgia State Roleplay</span><span class="muted">⌄</span></div>
+  <div class="topright"><span class="pill"><span class="online-dot"></span>Moderator workspace</span><span>◉</span><div class="avatar" style="height:32px;width:32px;border-radius:50%">🛡️</div></div>
+</header>
+<main class="layout">
+  <section class="column">
+    <div class="profile"><div class="avatar">🛡️</div><div><div class="hello">Welcome, Moderator!</div><div class="sub">GSRP Staff Control Center</div></div></div>
+    <div class="statusrow"><span class="status">● DEMO MODE</span><span class="muted">Staff tools preview</span></div>
+    <button class="btn btn-primary btn-full" onclick="toast('Shift started in this demo.')">▶ &nbsp; Start Shift</button>
+    <div class="sectionhead"><h2>Staff Toolbox</h2><span class="muted">⚙</span></div>
+    <div class="toolgrid">
+      <button class="btn btn-teal" onclick="fillAction('Manage LOA')">◷ Manage LOA</button>
+      <button class="btn" onclick="fillAction('Avatar Check')">♙ Avatar Check</button>
+      <button class="btn btn-pink" onclick="fillAction('Run Command')">›_ Run Command</button>
+      <button class="btn btn-blue" onclick="fillAction('Player Actions')">⚡ Player Actions</button>
+      <button class="btn btn-orange" onclick="fillAction('Request Staff')">♧ Request Staff</button>
+      <button class="btn btn-purple" onclick="fillAction('Staff Guidelines')">▤ Staff Guidelines</button>
+      <button class="btn btn-orange" onclick="fillAction('Manage Session')">▣ Manage Session</button>
+      <button class="btn" onclick="fillAction('Resources')">▱ Resources</button>
+    </div>
+    <div class="sectionhead"><h2><span id="playerCount">39</span> Players In-Game</h2><span class="tag">SERVER ONLINE</span></div>
+    <div class="sub" style="margin-bottom:12px">Georgia State Roleplay · Strict RP</div>
+    <input class="search" id="playerSearch" placeholder="Search players..." oninput="renderPlayers()">
+    <div class="playerlist" id="players"></div>
+    <div class="footnote">Player names below are sample entries for the design preview.</div>
+  </section>
+  <section class="column">
+    <h2>Create New Moderation Log</h2>
+    <div class="formcard">
+      <div class="field"><label for="username">Player username *</label><input id="username" placeholder="Enter Roblox username"></div>
+      <div class="two">
+        <div class="field"><label for="action">Action *</label><select id="action"><option>Warning</option><option>Note</option><option>Kick</option><option>Ban</option><option>BOLO</option></select></div>
+        <div class="field"><label for="robloxid">Roblox Player ID</label><input id="robloxid" placeholder="Optional ID"></div>
+      </div>
+      <div class="field"><label for="reason">Reason *</label><input id="reason" placeholder="Reason for the moderation action"></div>
+      <div class="field"><label for="description">Description / evidence</label><textarea id="description" placeholder="Add context, evidence, or staff notes..."></textarea></div>
+      <button class="btn btn-primary btn-full" onclick="createLog()">＋ Create Moderation Log</button>
+      <div class="tiny">Preview only — this form does not ban, warn, or contact a live server.</div>
+    </div>
+    <div class="sectionhead"><h2>What's happening in game?</h2><span class="tiny">LIVE ACTIVITY PREVIEW</span></div>
+    <div class="feedsearch"><input class="search" id="eventSearch" placeholder="Search players, commands, events..." oninput="filterEvents()"><button class="btn" onclick="toast('Filters are a preview in demo mode.')">☷</button></div>
+    <div class="feed" id="events">
+      <article class="event"><div class="eventtop"><div class="eventicon">📣</div><div><strong>Server announcement</strong><div class="tiny">GSRP System</div></div></div><p>Welcome to Georgia State Roleplay! Please follow the server rules and respect all players.</p><div class="eventtime">A few seconds ago</div></article>
+      <article class="event"><div class="eventtop"><div class="eventicon">🚔</div><div><strong>Player joined the server</strong><div class="tiny">Dispatch activity</div></div></div><p><b>PeachStateUnit</b> joined the game.</p><div class="eventtime">2 minutes ago</div></article>
+      <article class="event"><div class="eventtop"><div class="eventicon">🛡️</div><div><strong>Staff action recorded</strong><div class="tiny">Moderation</div></div></div><p>A sample warning was added to the moderation activity feed.</p><div class="eventtime">5 minutes ago</div></article>
+      <article class="event"><div class="eventtop"><div class="eventicon">👥</div><div><strong>Session status</strong><div class="tiny">Community</div></div></div><p>Server status is currently marked as online in this interface preview.</p><div class="eventtime">8 minutes ago</div></article>
+    </div>
+  </section>
+  <section class="column">
+    <h2>Punishment Logs</h2>
+    <div class="feedsearch"><input class="search" id="logSearch" placeholder="Search by username..." oninput="renderLogs()"><button class="btn" onclick="toast('Advanced filters can be connected to your backend.')">☷</button></div>
+    <div id="logs">
+      <article class="logcard" data-user="peachstateunit"><div class="logtop"><div class="eventtop"><div class="miniavatar">👤</div><div><strong>GSRP Moderator</strong><div class="tiny">@staff_member</div></div></div><button class="smallbtn" onclick="toast('Log menu preview.')">⋮</button></div><div class="kind">Warning</div><p><b>User:</b> PeachStateUnit</p><p><b>Roblox Player ID:</b> 123456789</p><p><b>Reason:</b> Breaking roleplay rules</p><p><b>Description:</b> Sample log for the panel preview. Replace this with real moderation records once a secure backend is connected.</p><div class="logfoot"><span>Previous punishments: 0</span><span>Demo record</span></div></article>
+      <article class="logcard" data-user="georgiarider"><div class="logtop"><div class="eventtop"><div class="miniavatar">👤</div><div><strong>GSRP Moderator</strong><div class="tiny">@staff_member</div></div></div><button class="smallbtn" onclick="toast('Log menu preview.')">⋮</button></div><div class="kind">Note</div><p><b>User:</b> GeorgiaRider</p><p><b>Reason:</b> Staff follow-up</p><p><b>Description:</b> Example staff note. This record is stored only in the current browser preview.</p><div class="logfoot"><span>Previous punishments: 0</span><span>Demo record</span></div></article>
+    </div>
+    <div class="sectionhead"><h2>Quick Reference</h2></div>
+    <div class="formcard">
+      <div class="player" style="margin-bottom:8px"><span>Warning</span><span class="tag">Record behavior</span></div>
+      <div class="player" style="margin-bottom:8px"><span>Note</span><span class="tag">Staff-only note</span></div>
+      <div class="player" style="margin-bottom:8px"><span>Kick / Ban / BOLO</span><span class="tag" style="background:#2a1b20;color:#ff9ba5">Requires permission</span></div>
+      <p class="tiny">Real enforcement should be handled by a protected server-side API with staff permission checks and audit logs.</p>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+var samplePlayers=[
+ {name:"PeachStateUnit",team:"Georgia State Patrol",icon:"🚔"},
+ {name:"GeorgiaRider",team:"Civilian",icon:"🚘"},
+ {name:"DispatchPro",team:"Communications",icon:"🎧"},
+ {name:"MedicATL",team:"EMS",icon:"🚑"},
+ {name:"RoadCrewGA",team:"GSDOT",icon:"🚧"},
+ {name:"CountyDeputy",team:"Sheriff",icon:"⭐"},
+ {name:"CityResident",team:"Civilian",icon:"👤"}
+];
+function renderPlayers(){var q=document.getElementById('playerSearch').value.toLowerCase();var list=samplePlayers.filter(function(p){return (p.name+' '+p.team).toLowerCase().includes(q)});document.getElementById('players').innerHTML=list.map(function(p){return '<div class="player"><div class="playername"><div class="miniavatar">'+p.icon+'</div><div><div>'+p.name+'</div><div class="team">'+p.team+'</div></div></div><button class="smallbtn" onclick="selectPlayer(\\''+p.name+'\\')">Select</button></div>'}).join('')||'<div class="empty">No matching players</div>'}
+function selectPlayer(name){document.getElementById('username').value=name;toast('Selected '+name+' for the log form.')}
+function fillAction(name){document.getElementById('action').value=name==='Run Command'?'Warning':name==='Player Actions'?'Warning':name==='Manage Session'?'Note':'Warning';document.getElementById('reason').focus();toast(name+' selected — choose a moderation action in the form.')}
+function createLog(){var user=document.getElementById('username').value.trim(),action=document.getElementById('action').value,reason=document.getElementById('reason').value.trim(),id=document.getElementById('robloxid').value.trim(),desc=document.getElementById('description').value.trim();if(!user||!reason){toast('Enter a username and reason first.');return}var card=document.createElement('article');card.className='logcard';card.setAttribute('data-user',user.toLowerCase());card.innerHTML='<div class="logtop"><div class="eventtop"><div class="miniavatar">🛡️</div><div><strong>GSRP Moderator</strong><div class="tiny">@current_staff</div></div></div><span class="tag">NEW</span></div><div class="kind"></div><p><b>User:</b> </p><p><b>Roblox Player ID:</b> </p><p><b>Reason:</b> </p><p><b>Description:</b> </p><div class="logfoot"><span>Created just now</span><span>Local demo only</span></div>';card.querySelector('.kind').textContent=action;var ps=card.querySelectorAll('p');ps[0].appendChild(document.createTextNode(user));ps[1].appendChild(document.createTextNode(id||'Not provided'));ps[2].appendChild(document.createTextNode(reason));ps[3].appendChild(document.createTextNode(desc||'No description provided.'));document.getElementById('logs').prepend(card);document.getElementById('username').value='';document.getElementById('robloxid').value='';document.getElementById('reason').value='';document.getElementById('description').value='';toast('Demo log created in this page.');}
+function renderLogs(){var q=document.getElementById('logSearch').value.toLowerCase();document.querySelectorAll('#logs .logcard').forEach(function(c){c.style.display=(c.getAttribute('data-user')||c.innerText.toLowerCase()).includes(q)?'block':'none'})}
+function filterEvents(){var q=document.getElementById('eventSearch').value.toLowerCase();document.querySelectorAll('#events .event').forEach(function(c){c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none'})}
+var toastTimer;function toast(msg){var el=document.getElementById('toast');el.textContent=msg;el.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(function(){el.style.display='none'},2800)}
+renderPlayers();
+</script>
+</body>
+</html>
